@@ -1,0 +1,8 @@
+*.o
+*.so
+*.un~
+*~
+*.swp
+*.log
+*.xpi
+*.pyc
