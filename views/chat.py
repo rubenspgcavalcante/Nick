@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'chat.ui'
+# Form implementation generated from reading ui file 'views/chat.ui'
 #
-# Created: Sun May  6 15:36:09 2012
+# Created: Mon May 28 23:29:28 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,6 +22,8 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        spacerItem = QtGui.QSpacerItem(20, 8, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Maximum)
+        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
         self.chatInput = QtGui.QTextEdit(self.centralwidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
@@ -31,14 +33,16 @@ class Ui_MainWindow(object):
         self.chatInput.setMaximumSize(QtCore.QSize(16777215, 64))
         self.chatInput.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.chatInput.setObjectName(_fromUtf8("chatInput"))
-        self.gridLayout.addWidget(self.chatInput, 2, 0, 1, 1)
-        spacerItem = QtGui.QSpacerItem(20, 8, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Maximum)
-        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
-        self.chatHistory = QtGui.QTextBrowser(self.centralwidget)
-        self.chatHistory.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.chatHistory.setOpenExternalLinks(True)
+        self.gridLayout.addWidget(self.chatInput, 3, 0, 1, 1)
+        self.chatHistory = QtWebKit.QWebView(self.centralwidget)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.chatHistory.sizePolicy().hasHeightForWidth())
+        self.chatHistory.setSizePolicy(sizePolicy)
+        self.chatHistory.setUrl(QtCore.QUrl(_fromUtf8("about:blank")))
         self.chatHistory.setObjectName(_fromUtf8("chatHistory"))
-        self.gridLayout.addWidget(self.chatHistory, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.chatHistory, 2, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 449, 25))
@@ -63,3 +67,4 @@ class Ui_MainWindow(object):
         self.menuContacts.setTitle(QtGui.QApplication.translate("MainWindow", "Contacts", None, QtGui.QApplication.UnicodeUTF8))
         self.actionConect.setText(QtGui.QApplication.translate("MainWindow", "Conect", None, QtGui.QApplication.UnicodeUTF8))
 
+from PyQt4 import QtWebKit

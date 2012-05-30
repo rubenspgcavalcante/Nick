@@ -3,6 +3,8 @@
 import sys
 from PyQt4 import QtGui, uic, QtCore
 from views import chat
+from themes.default.theme import Theme
+import resources
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -23,6 +25,10 @@ class Chat_Controller(QtGui.QMainWindow):
         self.ui = chat.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.chatInput.installEventFilter(self)
+        self.userSpeak = Theme()
+        self.userSpeak.setPersistentData("PHOTO", "qrc:/imgdir/photo.png")
+        self.userSpeak.setPersistentData("USERNAME", "My Name")
+        self.talkContent = ""
 
     def eventFilter(self, obj, event):
         if event.type() == QtCore.QEvent.KeyPress:
@@ -39,5 +45,11 @@ class Chat_Controller(QtGui.QMainWindow):
 
     def setTextChatHistory(self, text):
         chatHistory = self.ui.chatHistory
-        append = chatHistory.toHtml() + text
-        chatHistory.setHtml("<b>"+append+"</b>")
+        template = self.userSpeak.setData("TEXT", text)
+
+        if self.talkContent != "":
+            self.talkContent = self.talkContent + template
+        else:
+            self.talkContent = template
+
+        chatHistory.setHtml(self.talkContent, QtCore.QUrl('qrc:/'))
