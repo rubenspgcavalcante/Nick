@@ -6,3 +6,5 @@
 *.log
 *.xpi
 *.pyc
+views/*.py
+resources.py
