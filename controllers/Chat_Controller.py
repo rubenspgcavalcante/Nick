@@ -25,9 +25,12 @@ class Chat_Controller(QtGui.QMainWindow):
         self.ui = chat.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.chatInput.installEventFilter(self)
-        self.userSpeak = Theme()
-        self.userSpeak.setPersistentData("PHOTO", "qrc:/resourcedir/nophoto.png")
-        self.userSpeak.setPersistentData("USERNAME", "My Name")
+        #Loading theme and things like photos and names
+        self.theme = Theme()
+        self.theme.user.setPhoto("qrc:/resourcedir/nophoto.png")
+        self.theme.user.setName("My Name")
+        self.theme.guest.setPhoto("qrc:/resourcedir/nophoto.png")
+        self.theme.guest.setName("Guest's Name")
         self.talkContent = ""
 
     def eventFilter(self, obj, event):
@@ -43,13 +46,8 @@ class Chat_Controller(QtGui.QMainWindow):
         self.setTextChatHistory(text)
         pass
 
-    def setTextChatHistory(self, text):
+    def setTextChatHistory(self, text, isuser=true):
         chatHistory = self.ui.chatHistory
-        template = self.userSpeak.setData("TEXT", text)
+        speakHtml = self.theme.speak(text, isuser)
 
-        if self.talkContent != "":
-            self.talkContent = self.talkContent + template
-        else:
-            self.talkContent = template
-
-        chatHistory.setHtml(self.talkContent, QtCore.QUrl('qrc:/'))
+        chatHistory.setHtml(speakHtml, QtCore.QUrl('qrc:/'))
