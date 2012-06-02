@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="images">images/</file>
+    <file alias="html">html/</file>
+    <file alias="css">css/</file>
+</qresource>
+</RCC>

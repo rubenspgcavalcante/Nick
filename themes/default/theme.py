@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
+import resource_default
 
 class Theme(object):
     def __init__(self):
-        html = open(os.path.dirname(__file__)+'/html/theme.html', 'r').read()
+        html = html = open(os.path.dirname(__file__)+'/html/theme.html', 'r').read()
         css  = open(os.path.dirname(__file__)+'/css/style.css', 'r').read()
         self.content = html.replace('{%CSS%}', css )
 

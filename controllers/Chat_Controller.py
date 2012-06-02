@@ -4,7 +4,7 @@ import sys
 from PyQt4 import QtGui, uic, QtCore
 from views import chat
 from themes.default.theme import Theme
-import resources
+from resources import resources
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -26,7 +26,7 @@ class Chat_Controller(QtGui.QMainWindow):
         self.ui.setupUi(self)
         self.ui.chatInput.installEventFilter(self)
         self.userSpeak = Theme()
-        self.userSpeak.setPersistentData("PHOTO", "qrc:/imgdir/photo.png")
+        self.userSpeak.setPersistentData("PHOTO", "qrc:/resourcedir/nophoto.png")
         self.userSpeak.setPersistentData("USERNAME", "My Name")
         self.talkContent = ""
 
