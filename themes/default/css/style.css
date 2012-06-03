@@ -2,7 +2,7 @@
     width:99%;
     border: solid 1px;
     min-height: 48px;
-    padding: 4px 0px 8px 4px;
+    padding: 4px 4px 4px 4px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -15,28 +15,43 @@
 
 
 .infoblock .photo{
-    float: left;
     border: solid 2px;
     border-radius: 2px;
-    background-color: #DDE0FF;
     height:48px;
     width:48px;
 }
 
+    .user .photo{
+        float: left;
+    }
+
+    .guest .photo{
+        float: right;
+    }
+
 .infoblock .username{
-    float: left;
     font-family: Arial,"MS Trebuchet",sans-serif;
     font-size: 18px;
-    margin-left: 70px;
-    margin-top: 2px;
     position: absolute;
     text-shadow: 1px 1px 1px white;
 }
+    .user .username{
+        float: left;
+        margin-left: 70px;
+        margin-top: 2px;
+    }
+
+    .guest .username{
+        float: right;
+        position: relative;
+        margin-right: 17px;
+        margin-top: 2px;
+    }
 
 .textblock{
-    width: 80%;
+    width: 91%;
     margin-left: 52px;
-    margin-top: 26px;
+    margin-top: 36px;
 }
 
 .text{
@@ -46,4 +61,5 @@
     font-family: Arial, "MS Trebuchet", sans-serif;
     color:#2D2D2D;
     text-shadow: 2px 2px #F1F1F1;
+    text-align: justify;
 }

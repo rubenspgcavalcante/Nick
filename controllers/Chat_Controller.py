@@ -46,7 +46,7 @@ class Chat_Controller(QtGui.QMainWindow):
         self.setTextChatHistory(text)
         pass
 
-    def setTextChatHistory(self, text, isuser=true):
+    def setTextChatHistory(self, text, isuser=True):
         chatHistory = self.ui.chatHistory
         speakHtml = self.theme.speak(text, isuser)
 
